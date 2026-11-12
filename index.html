@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Creative portfolio featuring logo design, presentation design, and data analytics sample projects.">
+  <title>Creative Portfolio | Design & Data</title>
+  <style>
+    :root {
+      --bg: #071426; --panel: #0d2038; --panel2: #102844; --text: #edf5ff;
+      --muted: #9eb1c9; --blue: #54a8ff; --cyan: #55e0d0; --line: rgba(190,215,245,.14);
+      --shadow: 0 18px 55px rgba(0,0,0,.28);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+      background: radial-gradient(ellipse at 80% 0%, #15375b 0, transparent 34%), var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: auto; }
+    header { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(16px); background: rgba(7,20,38,.82); border-bottom: 1px solid var(--line); }
+    nav { min-height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { font-weight: 850; letter-spacing: -.04em; font-size: 1.15rem; }
+    .brand span { color: var(--blue); }
+    .navlinks { display: flex; gap: 25px; color: var(--muted); font-size: .92rem; }
+    .navlinks a:hover { color: white; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 12px 19px; border-radius: 12px; font-weight: 750; background: linear-gradient(110deg,var(--blue),#6d8cff); color: #061326; box-shadow: 0 9px 28px rgba(84,168,255,.2); border: 0; }
+    .btn.secondary { color: var(--text); background: transparent; border: 1px solid var(--line); box-shadow: none; }
+    .hero { padding: 100px 0 82px; display: grid; grid-template-columns: 1.3fr .7fr; align-items: center; gap: 55px; }
+    .eyebrow { color: var(--cyan); text-transform: uppercase; letter-spacing: .17em; font-size: .75rem; font-weight: 800; }
+    h1 { font-size: clamp(2.8rem, 6vw, 5.4rem); line-height: .99; letter-spacing: -.065em; margin: 17px 0 22px; }
+    h1 em { font-style: normal; color: var(--blue); }
+    .lead { color: var(--muted); font-size: 1.12rem; max-width: 650px; }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
+    .hero-card { padding: 25px; border: 1px solid var(--line); border-radius: 24px; background: linear-gradient(145deg,rgba(20,48,78,.94),rgba(9,26,47,.94)); box-shadow: var(--shadow); transform: rotate(2deg); }
+    .orb { height: 210px; border-radius: 18px; display: grid; place-items: center; background: radial-gradient(circle at 50% 40%,#4fbcff 0,#2163a7 25%,#142f58 60%,#0a1b31 100%); overflow: hidden; }
+    .orb svg { width: 76%; max-width: 230px; }
+    .hero-card small { color: var(--muted); display: block; margin-top: 17px; }
+    .hero-card strong { font-size: 1.2rem; }
+    section { padding: 70px 0; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 25px; margin-bottom: 30px; }
+    h2 { font-size: clamp(2rem,4vw,3rem); letter-spacing: -.05em; line-height: 1.05; margin: 9px 0; }
+    .section-head p { max-width: 490px; color: var(--muted); margin: 0; }
+    .services { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .service, .project, .about-box { background: rgba(13,32,56,.8); border: 1px solid var(--line); border-radius: 18px; }
+    .service { padding: 23px; }
+    .icon { width: 43px; height: 43px; display: grid; place-items: center; border-radius: 13px; background: rgba(84,168,255,.14); color: var(--cyan); font-size: 1.3rem; margin-bottom: 17px; }
+    h3 { margin: 0 0 8px; letter-spacing: -.025em; }
+    .service p, .project p { margin: 0; color: var(--muted); font-size: .94rem; }
+    .projects { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
+    .project { overflow: hidden; transition: transform .2s ease, border-color .2s ease; }
+    .project:hover { transform: translateY(-5px); border-color: rgba(84,168,255,.55); }
+    .visual { height: 250px; display: grid; place-items: center; padding: 24px; background: #102844; position: relative; overflow: hidden; }
+    .visual.logo-a { background: linear-gradient(135deg,#e9f4ff,#c4e5f5); color: #12304a; }
+    .visual.logo-b { background: linear-gradient(135deg,#f5eee2,#d9c8a7); color: #293e38; }
+    .visual.slide-a { background: linear-gradient(130deg,#162d55,#356da1); }
+    .visual.slide-b { background: linear-gradient(130deg,#f1f5f9,#dce9ef); color: #16314b; }
+    .visual.data-a { background: linear-gradient(135deg,#102d45,#174b63); }
+    .visual.data-b { background: linear-gradient(135deg,#171e3d,#293b68); }
+    .project-body { padding: 21px 22px 23px; }
+    .tag { display: inline-block; color: var(--cyan); font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 8px; }
+    .visual .brandmark { font-size: clamp(2.4rem,5vw,4rem); font-weight: 900; letter-spacing: -.08em; }
+    .visual .submark { font-size: .65rem; letter-spacing: .3em; text-transform: uppercase; text-align: center; }
+    .slide-frame { width: min(360px,95%); aspect-ratio: 16/9; border-radius: 9px; padding: 22px; box-shadow: 0 18px 35px rgba(0,0,0,.22); background: #f6f9ff; color: #142e4a; position: relative; }
+    .slide-frame.dark { background: #102a49; color: white; }
+    .slide-frame h4 { font-size: 1.5rem; line-height: 1.05; max-width: 220px; margin: 10px 0; }
+    .slide-frame p { font-size: .55rem; color: inherit; opacity: .72; }
+    .slide-frame .stripe { height: 5px; width: 45px; background: #55b9d8; border-radius: 9px; }
+    .slide-frame .mini { position: absolute; right: 18px; bottom: 17px; width: 75px; height: 58px; border-radius: 8px; background: linear-gradient(140deg,#53b7d8,#547bdb); opacity: .85; }
+    .dashboard { width: min(390px,100%); background: rgba(4,17,31,.65); border: 1px solid rgba(255,255,255,.13); border-radius: 14px; padding: 16px; }
+    .dash-top { display:flex; justify-content:space-between; color:#eaf5ff; font-size:.65rem; margin-bottom:14px; }
+    .metrics { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+    .metric { background:rgba(255,255,255,.08); padding:9px; border-radius:8px; font-size:.52rem; color:#adc6db; }
+    .metric b { display:block; color:white; font-size:1rem; }
+    .bars { height:90px; display:flex; align-items:end; gap:9px; padding:13px 8px 0; }
+    .bars i { flex:1; background:linear-gradient(#55e0d0,#3b8ed4); border-radius:5px 5px 0 0; }
+    .chartline { width:100%; height:75px; margin-top:12px; }
+    .note { color: var(--muted); font-size: .82rem; margin-top: 18px; }
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .about-box { padding:26px; }
+    .about-box p { color:var(--muted); margin-bottom:0; }
+    .skills { display:flex; flex-wrap:wrap; gap:9px; margin-top:18px; }
+    .skills span { border:1px solid var(--line); color:#c7d9ed; padding:7px 11px; border-radius:99px; font-size:.82rem; }
+    .contact { text-align:center; padding:55px 25px; border:1px solid var(--line); border-radius:25px; background: radial-gradient(circle at 50% 0%,#1a4670,transparent 65%),var(--panel); }
+    .contact p { color:var(--muted); max-width:560px; margin:12px auto 25px; }
+    footer { color:var(--muted); padding:30px 0; border-top:1px solid var(--line); font-size:.85rem; }
+    footer .wrap { display:flex; justify-content:space-between; gap:15px; flex-wrap:wrap; }
+    @media(max-width:780px) {
+      .hero { grid-template-columns:1fr; padding-top:70px; gap:35px; }
+      .hero-card { max-width:440px; transform:none; }
+      .services { grid-template-columns:1fr; }
+      .section-head { display:block; }
+      .section-head p { margin-top:12px; }
+      .navlinks { display:none; }
+      .projects,.about-grid { grid-template-columns:1fr; }
+      section { padding:52px 0; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <nav class="wrap">
+    <a class="brand" href="#home">CREATIVE<span>.</span>PORTFOLIO</a>
+    <div class="navlinks">
+      <a href="#services">Services</a><a href="#work">Projects</a><a href="#about">About</a><a href="#contact">Contact</a>
+    </div>
+    <a class="btn" href="#work">Explore work ↗</a>
+  </nav>
+</header>
+
+<main>
+  <div class="wrap hero" id="home">
+    <div>
+      <div class="eyebrow">Design • Presentations • Data</div>
+      <h1>Ideas made clear.<br><em>Design that works.</em></h1>
+      <p class="lead">I create clean visual identities, engaging presentations, and clear data dashboards that help ideas communicate with confidence.</p>
+      <div class="actions">
+        <a class="btn" href="#work">View my projects ↗</a>
+        <a class="btn secondary" href="#contact">Let's connect</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="orb">
+        <svg viewBox="0 0 260 190" fill="none" aria-label="Abstract creative design illustration">
+          <circle cx="130" cy="95" r="68" stroke="#d9f4ff" stroke-width="2" opacity=".7"/>
+          <path d="M130 27 L198 95 L130 163 L62 95 Z" stroke="#fff" stroke-width="3" opacity=".9"/>
+          <path d="M62 95 H198 M130 27 V163" stroke="#fff" stroke-width="2" opacity=".55"/>
+          <circle cx="130" cy="95" r="24" fill="#55e0d0"/>
+          <path d="M119 96 L127 104 L143 84" stroke="#0b2946" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <small>PORTFOLIO SHOWCASE</small>
+      <strong>Creative thinking, practical results.</strong>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="eyebrow">What I do</div><h2>Services</h2></div>
+        <p>Three complementary skills to make your brand, message, and information easier to understand.</p>
+      </div>
+      <div class="services">
+        <article class="service"><div class="icon">✳</div><h3>Logo & Graphic Design</h3><p>Simple, memorable visual concepts and polished graphics for brands and small projects.</p></article>
+        <article class="service"><div class="icon">▤</div><h3>Presentation Design</h3><p>Well-structured PowerPoint slides that turn information into a clear visual story.</p></article>
+        <article class="service"><div class="icon">⌁</div><h3>Data Analytics</h3><p>Organized spreadsheets, clear charts, and beginner-level dashboard concepts for useful insights.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="eyebrow">Selected sample work</div><h2>Six practice projects</h2></div>
+        <p>These are concept projects created to demonstrate design approach and presentation skills. They are not commissioned client work.</p>
+      </div>
+      <div class="projects">
+        <article class="project">
+          <div class="visual logo-a"><div><div class="brandmark">NOVA<span style="color:#2d91b6">.</span></div><div class="submark">Creative Studio</div></div></div>
+          <div class="project-body"><span class="tag">Logo design · Concept 01</span><h3>NOVA Creative Studio</h3><p>A modern wordmark concept for a creative agency, using confident typography and a fresh blue accent.</p></div>
+        </article>
+        <article class="project">
+          <div class="visual logo-b"><div style="text-align:center"><div style="font-size:3.5rem;font-weight:900;line-height:1">◈</div><div class="brandmark" style="font-size:2.5rem">ROOT & CO.</div><div class="submark">Natural Goods</div></div></div>
+          <div class="project-body"><span class="tag">Logo design · Concept 02</span><h3>ROOT & CO. Natural Goods</h3><p>An earthy identity direction for a fictional natural-products brand, built around a simple geometric symbol.</p></div>
+        </article>
+        <article class="project">
+          <div class="visual slide-a"><div class="slide-frame dark"><div class="stripe"></div><h4>The Future of Renewable Energy</h4><p>A presentation concept about clean energy, innovation, and a more sustainable future.</p><div class="mini"></div></div></div>
+          <div class="project-body"><span class="tag">PowerPoint · Concept 03</span><h3>Renewable Energy Presentation</h3><p>A title-slide and visual direction for an educational presentation, with strong hierarchy and readable layouts.</p></div>
+        </article>
+        <article class="project">
+          <div class="visual slide-b"><div class="slide-frame"><div class="stripe"></div><h4>Healthy Habits,<br>Better Living</h4><p>A clean, approachable presentation concept for a general health-awareness topic.</p><div class="mini"></div></div></div>
+          <div class="project-body"><span class="tag">PowerPoint · Concept 04</span><h3>Health Awareness Slides</h3><p>A calm and organized slide concept designed to make key health messages easy to follow.</p></div>
+        </article>
+        <article class="project">
+          <div class="visual data-a"><div class="dashboard"><div class="dash-top"><b>SALES OVERVIEW</b><span>DEMO DATA</span></div><div class="metrics"><div class="metric">Revenue<b>$24.8k</b></div><div class="metric">Orders<b>684</b></div><div class="metric">Growth<b>+12%</b></div></div><div class="bars"><i style="height:35%"></i><i style="height:53%"></i><i style="height:43%"></i><i style="height:72%"></i><i style="height:62%"></i><i style="height:90%"></i><i style="height:78%"></i></div></div></div>
+          <div class="project-body"><span class="tag">Data analytics · Concept 05</span><h3>Sales Performance Dashboard</h3><p>A sample dashboard layout showing headline metrics and a monthly trend using fictional demonstration data.</p></div>
+        </article>
+        <article class="project">
+          <div class="visual data-b"><div class="dashboard"><div class="dash-top"><b>STUDENT PERFORMANCE</b><span>DEMO DATA</span></div><div class="metrics"><div class="metric">Average<b>78%</b></div><div class="metric">Students<b>120</b></div><div class="metric">Pass rate<b>86%</b></div></div><svg class="chartline" viewBox="0 0 340 80" preserveAspectRatio="none"><path d="M0 63 C35 58 38 28 75 39 S120 58 155 29 S210 44 245 18 S300 30 340 7" stroke="#55e0d0" stroke-width="4" fill="none"/><path d="M0 63 C35 58 38 28 75 39 S120 58 155 29 S210 44 245 18 S300 30 340 7 L340 80 L0 80Z" fill="#55e0d0" opacity=".12"/></svg></div></div>
+          <div class="project-body"><span class="tag">Data analytics · Concept 06</span><h3>Student Results Overview</h3><p>A fictional education dataset concept presenting average scores, pass rate, and a simple performance trend.</p></div>
+        </article>
+      </div>
+      <p class="note">Note: Dashboard figures shown above are fictional sample values for visual demonstration only.</p>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">A little about me</div><h2>Curious by nature.</h2></div></div>
+      <div class="about-grid">
+        <div class="about-box"><h3>My approach</h3><p>I focus on clarity, consistency, and details. I enjoy learning new tools and turning rough ideas or information into organized, useful visual work.</p></div>
+        <div class="about-box"><h3>Tools & skills</h3><p>My current focus areas include visual design, presentation layouts, spreadsheets, and data visualization.</p><div class="skills"><span>Logo Design</span><span>Graphic Design</span><span>PowerPoint</span><span>Excel</span><span>Data Organization</span><span>Data Visualization</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact">
+        <div class="eyebrow">Have a project in mind?</div>
+        <h2>Let's make it clear and memorable.</h2>
+        <p>Tell me what you need. I’d be happy to discuss a logo, presentation, or a simple data-visualization project.</p>
+        <a class="btn" href="mailto:your-email@example.com?subject=Project%20inquiry">Contact me ↗</a>
+        <p class="note">Before publishing, replace <b>your-email@example.com</b> with your real contact email and add your preferred Fiverr profile link.</p>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap"><span>© 2026 Creative Portfolio</span><span>Concept projects · Design · Presentations · Data</span></div></footer>
+</body>
+</html>
